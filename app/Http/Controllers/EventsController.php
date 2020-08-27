@@ -57,8 +57,15 @@ class EventsController extends Controller
       return $result;
     }
 
-    public function show($id)
+    public function show($slug)
     {
-      return $id;
+      $slug = ucwords(str_replace('-', ' ', $slug));
+      $result = $this->events;
+
+      $result = array_filter($result, function($el) use ($slug) {
+        return ( $el['Title'] === $slug) ;
+      });
+
+      return collect($result)->first();
     }
 }

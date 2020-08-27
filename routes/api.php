@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('events', 'EventsController@index')->name('events.list');
-Route::get('events/{id}', 'EventsController@show')->name('events.show');
+Route::get('events/{slug}', 'EventsController@show')->name('events.show');
