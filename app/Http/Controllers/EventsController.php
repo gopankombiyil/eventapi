@@ -34,14 +34,14 @@ class EventsController extends Controller
       $result = $this->events;
 
       //filter the data with the selected keyword if the request contains keyword
-      if($keyword) {
+      if(!empty($keyword)) {
         $result = array_filter($result, function($el) use ($keyword) {
           return ( strpos($el['Title'], $keyword) !== false );
         });
       }
 
       //filter the data for city if the requst contains city
-      if($city) {
+      if(!empty($city)) {
         $result = array_filter($result, function($el) use ($city) {
           return ( $el['Location']['City'] === $city) ;
         });
