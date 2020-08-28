@@ -57,6 +57,11 @@ class EventsController extends Controller
       return $result;
     }
 
+    /**
+     * Show a single event
+     * @param  string $slug title slug to identify the record
+     * @return json       event json object
+     */
     public function show($slug)
     {
       $slug = ucwords(str_replace('-', ' ', $slug));
